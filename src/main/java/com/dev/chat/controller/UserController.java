@@ -20,7 +20,7 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
-	@PostMapping("/users")
+	@PostMapping("/users/join")
 	public UserVO insertUser( @Valid @ModelAttribute UserVO user) {
 		return userService.insertUser(user);
 	}

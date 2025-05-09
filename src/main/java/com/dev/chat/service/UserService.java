@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.dev.chat.mapper.UserMapper;
 import com.dev.chat.util.FileUploadUtil;
+import com.dev.chat.util.JWTUtil;
 import com.dev.chat.util.SHA256Util;
 import com.dev.chat.vo.UserVO;
 
@@ -13,6 +14,8 @@ public class UserService {
 
 	@Autowired
 	private UserMapper userMapper;
+	@Autowired
+	private JWTUtil jwtUtil;
 	
 	public UserVO insertUser(UserVO user) {
 		if(userMapper.selectUserById(user.getUiId())!=null) {
@@ -36,6 +39,8 @@ public class UserService {
 		if(dbUser==null || !encodePwd.equals(dbUser.getUiPwd())) {
 			throw new RuntimeException("아이디나 비밀번호를 확인해주세요");
 		}
+		String token = jwtUtil.getToken(dbUser);
+		dbUser.setToken(token);
 		return dbUser;
 	}
 }

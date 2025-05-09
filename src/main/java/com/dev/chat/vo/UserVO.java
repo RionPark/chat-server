@@ -47,4 +47,5 @@ public class UserVO {
     private String cretim;
     private String lmodat;
     private String lmotim;
+    private String token;
 }
