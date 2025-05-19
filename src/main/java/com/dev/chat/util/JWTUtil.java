@@ -14,7 +14,7 @@ import io.jsonwebtoken.security.Keys;
 public class JWTUtil {
 
 	private final String KEY = "asdfasdfasd321321321321sdffasdfasdfasdfsda";
-	private final long MAX = 1000;//3600000 * 24;
+	private final long MAX = 3600000 * 24;
 	
 	public String getToken(UserVO user) {
 		Date now = new Date();

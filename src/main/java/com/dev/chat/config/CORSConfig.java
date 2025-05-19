@@ -18,7 +18,7 @@ public class CORSConfig implements WebMvcConfigurer{
 	@Override
 	public void addCorsMappings(CorsRegistry reg) {
 		reg.addMapping("/**")
-		.allowedOrigins("http://localhost")
+		.allowedOrigins("http://localhost:3000")
 		.allowedMethods("*") // GET, POST, PUT, DELETE, OPTIONS
 		.allowedHeaders("*");
 	}
@@ -35,7 +35,8 @@ public class CORSConfig implements WebMvcConfigurer{
 	public void addInterceptors(InterceptorRegistry reg) {
 		reg.addInterceptor(authInterceptor)
 		.addPathPatterns("/**")
-		.excludePathPatterns("/users/join","/users/login","/file/**","/error");
+		.excludePathPatterns("/users/join","/users/login","/file/**","/error","/boards/**"
+				,"/chatrooms/**");
 	}
 	
 }

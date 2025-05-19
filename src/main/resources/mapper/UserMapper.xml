@@ -16,14 +16,15 @@
     <insert id="insertUser" parameterType="com.dev.chat.vo.UserVO" keyColumn="UI_NUM"
     keyProperty="uiNum" useGeneratedKeys="true">
         INSERT INTO USER_INFO(UI_ID, UI_PWD, UI_NAME, UI_IMG_NAME, 
-            UI_IMG_PATH, UI_ADDRESS1, UI_ADDRESS2, UI_PHONE, UI_DESC)
+            UI_IMG_PATH, UI_ZIP, UI_ADDRESS1, UI_ADDRESS2, UI_PHONE, UI_DESC)
         VALUES(#{uiId}, #{uiPwd}, #{uiName}, #{uiImgName}, 
-            #{uiImgPath}, #{uiAddress1}, #{uiAddress2}, #{uiPhone}, #{uiDesc})
+            #{uiImgPath},#{uiZip}, #{uiAddress1}, #{uiAddress2}, #{uiPhone}, #{uiDesc})
     </insert>
     
     <update id="updateUser" parameterType="com.dev.chat.vo.UserVO">
         UPDATE USER_INFO
         SET UI_NAME=#{uiName},
+        	UI_ZIP=#{uiZip},
             UI_IMG_NAME=#{uiImgName},
             UI_IMG_PATH=#{uiImgPath},
             UI_ADDRESS1=#{uiAddress1},

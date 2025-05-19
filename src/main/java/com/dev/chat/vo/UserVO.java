@@ -36,6 +36,8 @@ public class UserVO {
     private String uiImgName;
     private MultipartFile uiImg;
     private String uiImgPath;
+    @NotBlank(message = "우편번호는 필수입니다.")
+    private String uiZip;
     @NotBlank(message = "주소는 필수입니다.")
     private String uiAddress1;
     private String uiAddress2;
